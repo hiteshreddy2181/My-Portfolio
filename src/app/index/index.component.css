@@ -1,0 +1,130 @@
+.typewriter {
+    font-size: 40px;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid blue;
+    color: violet;
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    animation: blink 0.7s step-end infinite;
+  }
+  
+  @keyframes blink {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+
+
+  #skills{
+    overflow-x: hidden;
+  }
+  
+  .heading-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .heading {
+    margin: 5px 0 5px 0;
+    padding-bottom: 8px;
+    width: max-content;
+  }
+  
+  .container{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+  }
+  
+  .card{
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    transition: all 0.5s ease-in;
+  }
+  
+  .card:hover{
+    transform: scale(1.1);
+    border: 2px solid #01C6FF;
+    transition: all 0.3s ease-out;
+  }
+  
+  
+  .glass{
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .ico{
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+  }
+  
+  
+  
+  
+  @media only screen and (max-width:993px){
+    .card {
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+      }
+  
+    .ico{
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+    }
+    .ico-txt{
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width:600px){
+    .container{
+      gap: 0.6rem;
+    }
+    .card{
+      width: 90px;
+      height: 90px;
+  
+    }
+    .ico{
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+    }
+    .ico-txt{
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  
+  @media only screen and (max-width:300px){
+    .container{
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
+  

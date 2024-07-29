@@ -9,6 +9,7 @@ export interface PersonalInfo {
     'born': number,
     'gender': string,
     'phone': string,
+    'email': string,
     'slogan': string
     
 }

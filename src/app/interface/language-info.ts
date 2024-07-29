@@ -1,4 +1,4 @@
 export interface LanguageInfo {
-    'language': string,
-    'percent': number
+    'name': string,
+    'src': string
 }

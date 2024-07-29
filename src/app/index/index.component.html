@@ -1,9 +1,16 @@
 <div class="vg-main-wrapper">
-  <div class="vg-page page-home" id="home" style="background-image: url(../assets/img/MountKilimanjaro.jpg);">
+  <div class="vg-page page-home" id="home" style="background-image: url(../assets/img/pexels-felixmittermeier-956981.jpg);">
     <div class="caption wow zoomInUp">
-      <h1 class="fw-normal">It's Me</h1>
-      <h2 class="fw-medium fg-theme">{{ pinfo?.name }}</h2>
-      <p class="tagline">{{ pinfo?.who }}</p>
+    <h1 class="fw-normal">Hi There!
+      <span class="wave" role="img" aria-labelledby="wave">👋🏻</span>
+    </h1> 
+    <h1 class="fw-normal">I'm
+      <strong class="fw-medium fg-theme">{{ pinfo?.name }}</strong>
+    </h1>
+    <div class="typewriter">
+      <span>{{ currentText }}</span>
+      <span class="cursor">|</span>
+    </div>
     </div>
   </div>
   
@@ -22,23 +29,49 @@
           <div class="caption wow fadeInRight">
             <h2 class="fg-dark">{{ pinfo?.name }}</h2>
             <p class="fg-theme fw-medium">{{ pinfo?.who }}</p>
-            <p>{{ pinfo?.description }}</p>
-            <ul class="theme-list">
+            <p style="font-size: 18px;">{{ pinfo?.description }}</p>
+            <ul style="font-size: 18px;" class="theme-list" id="contact">
               <li class="fg-dark"><b>From:</b> {{ pinfo?.from }}</li>
               <li class="fg-dark"><b>Lives In:</b> {{ pinfo?.live }}</li>
               <li class="fg-dark"><b>Age:</b> {{ calculateYears(pinfo?.born) }}</li>
               <li class="fg-dark"><b>Gender:</b> {{ pinfo?.gender }}</li>
               <li class="fg-dark"><b>Phone:</b> {{ pinfo?.phone }}</li>
+              <li class="fg-dark"><b>Email:</b> {{ pinfo?.email }}</li>
             </ul>
              <!--<button class="btn btn-theme btn-rounded">Hire Me</button> -->
           </div>
         </div>
       </div>
     </div> 
+    <div>
+      <br><br>
+      <br><br>
+    </div>
     <!-- End profile -->
+    <div class="container pt-5">
+      <div class="row" id="skills">
+        <div class="col-md-12 wow fadeInRight">
+    <div>
+      <div class="heading-wrapper">
+        <h1 class="heading" i18n>&nbsp;Skills 🧑‍💻&nbsp;</h1>
+      </div>
+      <div class="container">
+        <div class="card glass" *ngFor="let s of languages" data-toggle="tooltip" data-placement="top" [title]="s.name" >
+            <img class="ico" [src]=s.src alt="image" i18n-alt>
+            <p class="ico-txt" mat-tool-tip="[s.name]">{{s.name}}</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
+  <div>
+    <br><br>
+    <br><br>
+  </div>
 
-    <!-- Skills -->
+    <!-- Skills
     <div class="container mt-5">
       <h1 class="text-center fg-dark wow fadeInUp">My Skills</h1>
       <div class="row py-3">
@@ -70,17 +103,17 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End skills -->
     <!-- Resume -->
     <div class="container pt-5">
-      <div class="row">
+      <div class="row" id="portfolio">
         <div class="col-md-6 wow fadeInRight">
           <h2 class="fg-dark">Education</h2>
           <ul class="timeline mt-4 pr-md-5">
 
             <li *ngFor="let exp of experience[0]">
-              <div class="title">{{ exp.year }}</div>
+              <div class="title1">{{ exp.year }}</div>
               <div class="details">
                 <h5>{{ exp.position }}</h5>
                 <small class="fg-theme">{{ exp.place }}</small>
@@ -96,7 +129,7 @@
           <ul class="timeline mt-4 pr-md-5">
 
             <li *ngFor="let exp of experience[1]">
-              <div class="title">{{ exp.year }}</div>
+              <div class="title1">{{ exp.year }}</div>
               <div class="details">
                 <h5>{{ exp.position }}</h5>
                 <small class="fg-theme">{{ exp.place }}</small>
@@ -111,7 +144,7 @@
   </div> <!-- End page about -->
   
   <!-- Page Service -->
-  <div class="vg-page page-service" id="services">
+  <!-- <div class="vg-page page-service" id="services">
     <h1 class="text-center wow fadeInUp">Services</h1>
     <div class="container">
       <div class="row">
@@ -124,22 +157,22 @@
             <h4 class="fg-theme">{{ service.title }}</h4>
             <p>{{ service.description }}</p>
 
-            <a href="#" class="btn btn-theme btn-rounded">Read More</a>
+            <a href="#" class="btn btn-theme btn-rounded">Read More</a> -->
             <!-- later create a pop up to display the {{ service.more }} -->
 
-          </div>
+          <!-- </div>
         </div>
         
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- End page services -->
 
   <!-- Portfolio page -->
   <!-- hint here i only displayed the top5 projects,
        Other projecs can be found at load more
   -->
-  <div class="vg-page page-portfolio" id="portfolio">
+  <!-- <div class="vg-page page-portfolio" id="portfolio">
     <div class="container">
       <div class="text-center wow fadeInUp">
         <div class="badge badge-subhead">Portfolio</div>
@@ -151,7 +184,6 @@
       </div>
 
       <div class="gridder my-3">
-        <!--  -->
         <a *ngFor="let work of work" [attr.href]="work.link" target="_blank">
           <div class="grid-item {{work.type}} wow zoomIn">
             <div class="img-place" [attr.data-src]="work.photo">
@@ -164,23 +196,23 @@
           </div>
         </a>
         
-      </div>
+      </div> -->
       <!-- End gridder -->
-      <div class="text-center wow fadeInUp">
+      <!-- <div class="text-center wow fadeInUp">
         <a href="/works" class="btn btn-theme ">See All My Works</a>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- End Portfolio page -->
   
   <!-- Awards page -->
-  <div class="vg-page page-blog" id="awards">
+  <!-- <div class="vg-page page-blog" id="awards">
     <h1 class="text-center fg-dark wow fadeInUp">Top Awards and Certificates</h1>
     <div class="container">
       <div class="row post-grid">
         
         <div *ngFor="let saward of award" class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="img-place"  [attr.data-src]=" saward.photo.toString()" data-fancybox> <!-- the one which pops up -->
+          <div class="img-place"  [attr.data-src]=" saward.photo.toString()" data-fancybox>
             <div class="card">
               <img src="{{ saward.photo }}" alt="">
               <div class="caption">
@@ -197,12 +229,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- End Awards page -->
 
 
         <!-- Footer -->
-        <div class="vg-footer" id="contact">
+        <!-- <div class="vg-footer" id="contact">
           <h1 class="text-center fg-dark wow fadeInUp">Contact</h1>
           <div class="container">
             <div class="row">
@@ -242,7 +274,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- End footer -->
-      </div>
+      <!-- </div> -->
       <!-- End main wrapper -->

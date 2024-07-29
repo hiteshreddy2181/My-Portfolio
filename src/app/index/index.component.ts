@@ -17,6 +17,14 @@ import { ServiceOfferedService } from '../services/service-offered.service';
   styleUrl: './index.component.css'
 })
 export class IndexComponent implements OnInit {
+  skills: string[] = ['Software developer', 'Full Stack Developer', 'Data Engineer', 'Freelancer'];
+  currentSkillIndex: number = 0;
+  currentText: string = '';
+  isDeleting: boolean = false;
+  typeSpeed: number = 200;
+  eraseSpeed: number = 200;
+  delayBetweenSkills: number = 2000;
+
   pinfo: PersonalInfo | undefined; // observable for personal information
 
   languages: any;
@@ -44,9 +52,29 @@ export class IndexComponent implements OnInit {
     this.work = this.work.slice(0,5);
     this.categories = this.works.getCategory();
     this.services = this.sv.getServices();
-    
+    this.type();
   }
 
+  type() {
+    const currentSkill = this.skills[this.currentSkillIndex];
+    if (this.isDeleting) {
+      this.currentText = currentSkill.substring(0, this.currentText.length - 1);
+      if (this.currentText === '') {
+        this.isDeleting = false;
+        this.currentSkillIndex = (this.currentSkillIndex + 1) % this.skills.length;
+      }
+    } 
+    else {
+      this.currentText = currentSkill.substring(0, this.currentText.length + 1);
+      if (this.currentText === currentSkill) {
+        // setTimeout(() => this.isDeleting = true, this.delayBetweenSkills);
+        this.isDeleting = true
+      }
+    }
+
+    const delay = this.isDeleting ? this.eraseSpeed : this.typeSpeed;
+    setTimeout(() => this.type(), delay);
+  }
   calculateYears(born: any){
     return this.year - born;
   }
