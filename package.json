@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+  "build": "ng build --base-href /My-Portfolio/",
+  "deploy": "ngh --dir=dist/My-Portfolio --no-silent"
   },
   "private": true,
   "dependencies": {
